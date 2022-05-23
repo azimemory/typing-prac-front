@@ -36,6 +36,7 @@ function SentencePannel() {
         inputTextDOM.current.innerHTML = '';
         setAccurancy(0);
         setCurrentSpeed(0);
+        setTypingCnt(0);
         setIntervalFlg(false);
     }
 
@@ -69,7 +70,6 @@ function SentencePannel() {
 
         if (e.key !== sentence.charAt(inputText.length)) {
             e.preventDefault();
-            console.dir(drumbit);
             drumSound.play();
             return;
         }

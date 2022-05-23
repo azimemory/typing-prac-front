@@ -12,6 +12,10 @@ function Header() {
     const packageState = useRecoilValue(packageAtom);
     const classState = useRecoilValue(classAtom);
 
+    function loadPage(url) {
+        setContentState(lazy(() => import('components/pages/' + url)));
+    }
+
     return (
         <header role="banner">
             <nav role="navigation">
@@ -25,16 +29,16 @@ function Header() {
 
                         <ul className="navList" title="Navigation">
                             <li>
-                               <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Overview')))}>overview</Link>
+                               <Link to={'#'} onClick={() => loadPage('document/Overview.js')}>overview</Link>
                             </li>
                             <li>
                                 {
-                                    packageState ? <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Module')))}>module</Link> : null
+                                    packageState ? <Link to={'#'} onClick={() => loadPage('document/Module.js')}>module</Link> : null
                                 }
                             </li>
                             <li>
                                 {
-                                    classState ? <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Package')))}>package</Link> : null
+                                    classState ? <Link to={'#'} onClick={() => loadPage('document/Package.js')}>package</Link> : null
                                 }
                                 
                             </li>
@@ -45,18 +49,20 @@ function Header() {
                         <div>
                             {userInfo.email} 
                             {userInfo.email == 'anonymous' 
-                                    ? <Link to={'/signin'}>&nbsp; | &nbsp; login</Link> 
-                                    : <Link to={'/'} 
+                                    ? <Link to={'#'} onClick={() => loadPage('user/Login.js')} >&nbsp; | &nbsp; login</Link> 
+                                    : <Link to={'#'} 
                                             onClick={() => {
                                                     setUserInfo({
                                                         "email":"anonymous",
                                                         "token":""  
                                                     })
+
+                                                    loadPage('document/Overview.js')
                                                 }}
                                         >&nbsp; | &nbsp; logout</Link>}
 
                             {userInfo.email == 'anonymous' ? 
-                                    <Link to={'/signup'}>&nbsp; | &nbsp; join</Link> : null}
+                                    <Link to={'#'} onClick={() => loadPage('user/Join.js')}>&nbsp; | &nbsp; join</Link> : null}
                         </div>
                         <a id="skip.navbar.top">
                         </a>

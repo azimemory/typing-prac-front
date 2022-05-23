@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { user } from 'recoil/state/UserState';
 import { Alert } from "react-bootstrap";
+import { contentSelector } from 'recoil/state/ContentState';
+import { lazy } from 'react';
 
 const axios = require('axios');
 
@@ -13,9 +15,14 @@ function Login() {
     const [userState, setUserState] = useRecoilState(user);
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const setContentState = useSetRecoilState(contentSelector);
 
     const emailDom = useRef();
     const passwordDom = useRef();
+
+    function loadPage(url) {
+        setContentState(lazy(() => import('components/pages/' + url)));
+    }
 
     const handleValidation = (password) => {
         
@@ -56,7 +63,7 @@ function Login() {
                     "email":decoded.aud,
                     "token":token
                   });
-                navigate('/');
+                  loadPage('document/Overview.js');
               })
               .catch(function (error) {
                 console.dir(error);

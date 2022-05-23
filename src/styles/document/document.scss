@@ -1,0 +1,38 @@
+.sentence__div{
+    @extend .sentence;
+    color:rgb(46, 45, 45);
+    background-color:rgb(104, 104, 253);
+}
+
+.sentence__textarea{
+    @extend .sentence;
+    color:white;
+    background-color:navy;
+    width:100%;
+    resize:none;
+}
+
+.sentence__textarea::-webkit-scrollbar { 
+    display: none;
+    width: 0 !important;   
+}
+
+.progress__div--white{
+    @extend .sentence;
+    position: absolute;
+    color:yellow;
+    background-color: transparent;
+}
+
+.sentence{
+    padding:15px;
+    border-radius:20px;
+    font-weight: bolder;
+    font-size:20px;
+    word-break:break-all;
+    width:calc(99vw - 40px);
+}
+
+.title{
+    font-weight: bolder;
+}

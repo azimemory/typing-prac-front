@@ -1,0 +1,20 @@
+html, body{
+    width: 100%;
+}
+
+header, footer{
+    height: 110px;
+}
+
+header *, footer *{ 
+    box-sizing: content-box;
+}
+
+
+main{
+    min-width: 100%;
+    //calc함수 사용할 때 식의 좌/우항과 연산자 사아에 반드시 공백 있어야 함
+    min-height: calc(100vh - 220px);
+}
+
+

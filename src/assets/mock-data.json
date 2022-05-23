@@ -1,0 +1,120 @@
+{
+   "module": [
+      {
+         "name": "java.base",
+         "desc": "The JDK implementation of this module provides an implementation of the jrt file system provider to enumerate and read the class and resource files in a run-time image.",
+         "packageList": [
+            {
+               "module": "java.base",
+               "name": "java.lang",
+               "desc": "Provides classes that are fundamental to the design of the Java programming language.",
+               "classList": [
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "Object",
+                     "desc": "Class Object is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "String",
+                     "desc": "The String class represents character strings. All string literals in Java programs, such as 'abc', are implemented as instances of this class."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "StringBuffer",
+                     "desc": "A thread-safe, mutable sequence of characters. A string buffer is like a String, but can be modified."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "StringBuilder",
+                     "desc": "A mutable sequence of characters. This class provides an API compatible with StringBuffer, but with no guarantee of synchronization."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "Comparable",
+                     "desc": "This interface imposes a total ordering on the objects of each class that implements it."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "Iterable",
+                     "desc": "Implementing this interface allows an object to be the target of the enhanced for statement (sometimes called the 'for-each loop' statement)."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "AutoCloseable",
+                     "desc": "The close() method of an AutoCloseable object is called automatically when exiting a try-with-resources block for which the object has been declared in the resource specification header"
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "Thread",
+                     "desc": "A thread is a thread of execution in a program. The Java Virtual Machine allows an application to have multiple threads of execution running concurrently."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.lang",
+                     "name": "Runnable",
+                     "desc": "The Runnable interface should be implemented by any class whose instances are intended to be executed by a thread."
+                  }
+               ]
+            },
+            {
+               "module": "java.base",
+               "name": "java.util",
+               "desc": "Contains the collections framework, some internationalization support classes, a service loader, properties, random number generation, string parsing and scanning classes, base64 encoding and decoding, a bit array, and several miscellaneous utility classes.",
+               "classList": [
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "List",
+                     "desc": "An ordered collection (also known as a sequence)"
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Set",
+                     "desc": "A collection that contains no duplicate elements. More formally, sets contain no pair of elements e1 and e2 such that e1.equals(e2), and at most one null element."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Map",
+                     "desc": "An object that maps keys to values. A map cannot contain duplicate keys; each key can map to at most one value."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Queue",
+                     "desc": "A collection designed for holding elements prior to processing."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Stack",
+                     "desc": "The Stack class represents a last-in-first-out (LIFO) stack of objects."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Deque",
+                     "desc": "A linear collection that supports element insertion and removal at both ends."
+                  },
+                  {
+                     "module": "java.base",
+                     "package": "java.util",
+                     "name": "Stream",
+                     "desc": "A sequence of elements supporting sequential and parallel aggregate operations."
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

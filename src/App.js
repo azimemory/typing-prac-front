@@ -9,6 +9,7 @@ function App() {
     return (
         <div className="content">
             <Header />
+            
             <Suspense fallback={<div>로딩중입니다.</div>}><Content/></Suspense>
             <Footer />
         </div>

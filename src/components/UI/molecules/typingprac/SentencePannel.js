@@ -90,6 +90,7 @@ function SentencePannel() {
         }else{
             if(inputText.length < sentence.length-1) return;
             clearInterval(renderIntervalId);
+            console.dir(typingCnt);
             setAccurancy(((sentence.length-1)/typingCnt * 100).toFixed(1));
             if(currentSpeed > maxSpeed) setMaxSpeed(currentSpeed);                           
             return;

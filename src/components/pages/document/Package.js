@@ -2,16 +2,19 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import { packageAtom } from 'recoil/state/PackageState';
 import { classListSelector, classAtom} from 'recoil/state/ClassState';
-
+import { lazy } from 'react';
+import { contentSelector } from 'recoil/state/ContentState';
 function Package(){
 
     console.dir('render Package');
+    const setContentState = useSetRecoilState(contentSelector);
     const packageState = useRecoilValue(packageAtom);
     const classList = useRecoilValue(classListSelector(`/api/class/${packageState.name}`));
     const setClassState = useSetRecoilState(classAtom);
-
+  
     function classClick(idx){
         setClassState(classList[idx])
+        setContentState(lazy(() => import('components/pages/typingprac/ClassPractice')));
     }
 
     return(
@@ -59,7 +62,7 @@ function Tuple(props) {
         <tr className={props.id % 2 == 0 ? 'alt-color' : 'row-color'}>
             <th className="col-first" scope="row">
                 <Link onClick={props.onClick} 
-                      to={'/practice/class'}>{props.name}</Link>
+                      to={'#'}>{props.name}</Link>
             </th>
             <td className="col-last">
                     {props.desc}

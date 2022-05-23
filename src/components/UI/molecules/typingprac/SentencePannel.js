@@ -4,6 +4,8 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { classAtom, classListSelector } from 'recoil/state/ClassState';
 import { currentSpeedAtom, maxSpeedAtom, accurancyAtom } from 'recoil/state/StatisticState';
 
+import drumbit from 'assets/sound/snare-drum.wav';
+
 function SentencePannel() {
     
     console.dir('render SentencePannel');
@@ -22,6 +24,7 @@ function SentencePannel() {
     
     const inputTextDOM = useRef();
     const sentence = classState.desc;
+    const drumSound = new Audio(drumbit);
     
     function initNextPractice(){
 
@@ -66,6 +69,8 @@ function SentencePannel() {
 
         if (e.key !== sentence.charAt(inputText.length)) {
             e.preventDefault();
+            console.dir(drumbit);
+            drumSound.play();
             return;
         }
 

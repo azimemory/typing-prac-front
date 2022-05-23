@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { user } from 'recoil/state/UserState';
 
-import { moduleAtom } from 'recoil/state/ModuleState';
 import { packageAtom } from 'recoil/state/PackageState';
 import { classAtom} from 'recoil/state/ClassState';
 

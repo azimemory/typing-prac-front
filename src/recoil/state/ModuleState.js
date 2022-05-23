@@ -1,7 +1,6 @@
 import { selectorFamily, atom } from 'recoil';
 import axios from "axios";
 
-
 export const moduleAtom = atom({
   key:'moduleAtom',
   default:null

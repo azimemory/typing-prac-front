@@ -1,6 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { classAtom } from 'recoil/state/ClassState';
-
+import { useEffect } from 'react';
 import 'styles/document/document.scss';
 import Statistics from "components/UI/molecules/typingprac/Statistics";
 import SentencePannel from "components/UI/molecules/typingprac/SentencePannel";
@@ -9,6 +9,20 @@ function ClassPractice() {
 
   console.dir('render ClassPractice');
   const classState = useRecoilValue(classAtom);
+  
+  const preventClose = (e) => {
+    e.preventDefault();
+    e.returnValue = ""; //Chrome에서 동작하도록; deprecated
+  };
+
+  useEffect(() => {
+    (() => {
+      window.addEventListener("beforeunload", preventClose);
+    })();
+    return () => {
+      window.removeEventListener("beforeunload", preventClose);
+    };
+  }, []);
 
   return (
     <main role="main">
@@ -22,8 +36,8 @@ function ClassPractice() {
       </div>
 
       <div className="contentContainer">
-          <Statistics />
-          <SentencePannel />
+        <Statistics />
+        <SentencePannel />
       </div>
     </main>
   );

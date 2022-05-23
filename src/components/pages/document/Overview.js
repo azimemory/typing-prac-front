@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { moduleListSelector,  moduleAtom } from 'recoil/state/ModuleState';
-
+import { lazy } from 'react';
+import { contentSelector } from 'recoil/state/ContentState';
 function Overview() {
 
+    const setContentState = useSetRecoilState(contentSelector);
     const moduleList = useRecoilValue(moduleListSelector('/api/module'));
     const setModuleState = useSetRecoilState(moduleAtom);
-    
+
     function moduleClick(idx) {
-        setModuleState(moduleList[idx])
+        setModuleState(moduleList[idx]);
+        setContentState(lazy(() => import('components/pages/document/Module')));
     }
 
     return (
@@ -48,7 +51,7 @@ function Tuple(props) {
     return (
         <tr className="alt-color">
             <th className="col-first" scope="row">
-                <Link onClick={props.onClick} to={'/module'}>{props.name}</Link>
+                <Link onClick={props.onClick} to={'#'}>{props.name}</Link>
             </th>
             <td className="col-last">
                 {props.desc}

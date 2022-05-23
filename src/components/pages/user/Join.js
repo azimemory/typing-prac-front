@@ -1,8 +1,10 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { user } from 'recoil/state/UserState';
 import { Alert } from "react-bootstrap";
+import { contentSelector } from 'recoil/state/ContentState';
+import { lazy } from 'react';
 
 const axios = require('axios');
 
@@ -11,9 +13,14 @@ function Join() {
     const [userState, setUserState] = useRecoilState(user);
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const setContentState = useSetRecoilState(contentSelector);
 
     const emailDom = useRef();
     const passwordDom = useRef();
+
+    function loadPage(url) {
+        setContentState(lazy(() => import('components/pages/' + url)));
+    }
 
     const handleValidation = ( password) => {
         let formIsValid = true;
@@ -46,7 +53,7 @@ function Join() {
                 }
               })
               .then(function () {
-                navigate('/signin');
+                loadPage('user/Login.js');
               })
               .catch(function (error) {
                 setEmailError(error.response.data.data.msg); 

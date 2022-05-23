@@ -1,8 +1,7 @@
 import jwt_decode from "jwt-decode";
-import { recoilPersist } from 'recoil-persist'
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { user } from 'recoil/state/UserState';
 import { Alert } from "react-bootstrap";
 import { contentSelector } from 'recoil/state/ContentState';

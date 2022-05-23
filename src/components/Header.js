@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { user } from 'recoil/state/UserState';
-
+import { contentSelector } from 'recoil/state/ContentState';
+import { lazy } from 'react';
 import { packageAtom } from 'recoil/state/PackageState';
 import { classAtom} from 'recoil/state/ClassState';
 
 function Header() {
-
+    const setContentState = useSetRecoilState(contentSelector);
     const [userInfo, setUserInfo] = useRecoilState(user);
     const packageState = useRecoilValue(packageAtom);
     const classState = useRecoilValue(classAtom);
@@ -25,16 +25,16 @@ function Header() {
 
                         <ul className="navList" title="Navigation">
                             <li>
-                               <Link to={'/'}>overview</Link>
+                               <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Overview')))}>overview</Link>
                             </li>
                             <li>
                                 {
-                                    packageState ? <Link to={'/module'}>module</Link> : null
+                                    packageState ? <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Module')))}>module</Link> : null
                                 }
                             </li>
                             <li>
                                 {
-                                    classState ? <Link to={'/package'}>package</Link> : null
+                                    classState ? <Link to={'#'} onClick={() => setContentState(lazy(() => import('components/pages/document/Package')))}>package</Link> : null
                                 }
                                 
                             </li>

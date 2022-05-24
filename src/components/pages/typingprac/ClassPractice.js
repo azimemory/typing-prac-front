@@ -9,21 +9,8 @@ function ClassPractice() {
 
   console.dir('render ClassPractice');
   const classState = useRecoilValue(classAtom);
+  console.dir(classState);
   
-  const preventClose = (e) => {
-    e.preventDefault();
-    e.returnValue = ""; //Chrome에서 동작하도록; deprecated
-  };
-
-  useEffect(() => {
-    (() => {
-      window.addEventListener("beforeunload", preventClose);
-    })();
-    return () => {
-      window.removeEventListener("beforeunload", preventClose);
-    };
-  }, []);
-
   return (
     <main role="main">
       <div className="header">

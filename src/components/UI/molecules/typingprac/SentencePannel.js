@@ -31,7 +31,7 @@ function SentencePannel() {
         if(currentSpeed > maxSpeed) setMaxSpeed(currentSpeed);
 
         const nextIdx = classList.indexOf(classState)+1;
-        setClassState(classList[nextIdx > classList.lastIndexOf() ? 0 : nextIdx])
+        setClassState(classList[nextIdx >= classList.length ? 0 : nextIdx])
         setInputText('');
         inputTextDOM.current.innerHTML = '';
         setAccurancy(0);
